@@ -3,6 +3,7 @@ package Ozy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Driver {
 	    public static String input;
@@ -26,11 +27,12 @@ public class Driver {
 
 				if (input.equals("1")) {
 					//testing 
-					Records rec = new Records();
-					ArrayList <Athlete> list = rec.recordsKeeper("sprinter");
-					for(int i = 0; i< list.size(); i++){
-						System.out.println(list.get(i).complete());
-					}
+					RunningGame run = new RunningGame();
+					run.runEvent();
+					//Game game = new Game();
+					//System.out.println(game.genTotalAthelete());
+					//System.out.println(game.genNoOfNormalAthelete());
+					//System.out.println(game.calNoOfSuperAthlete());
 					
 					System.out.println("Chosen 1");
 					break;
