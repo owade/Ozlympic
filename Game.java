@@ -1,4 +1,5 @@
 package Ozy;
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
@@ -24,6 +25,12 @@ public class Game {
 	public int calNoOfSuperAthlete(){
 		noOfSuperAthlete = totalAthlete - noOfNormalAthlete;
 		return noOfSuperAthlete;
+	}
+	
+	//Get Random official for a game
+	public static String getRandomOfficial(String[] array) {
+	    int rnd = new Random().nextInt(array.length);
+	    return array[rnd];
 	}
 	
 	

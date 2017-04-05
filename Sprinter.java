@@ -1,18 +1,17 @@
 package Ozy;
-import java.util.concurrent.ThreadLocalRandom;
+
+import java.util.Random;
 
 public class Sprinter extends Athlete{
 	
-	public Sprinter(int id, String name, int age, String state){
-		super(id, name, age, state);
+	public Sprinter(int id, String name, int age, String state,int points){
+		super(id, name, age, state,points);
 	}
 	public Sprinter(){
 	}
 	
-	public double complete(){
-		//generate random random number between 10-20 
-		double timeToComplete = ThreadLocalRandom.current().nextDouble(10, 21);
-		return timeToComplete;
+	public int compete(){
+	  Random ran = new Random();
+	  return 10 + ran.nextInt(11);
 	}
-
 }

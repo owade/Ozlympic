@@ -1,15 +1,18 @@
 package Ozy;
 
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 
-public class Swimmer extends Athlete{
+public class Swimmer extends Athlete {
 	
-	public Swimmer(int id, String name, int age, String state){
-		super(id, name, age, state);
+	public Swimmer(int id, String name, int age, String state,int points){
+		super(id, name, age, state,points);
 	}
-	public double complete(){
-		//generate random random number between 100-200
-		double timeToComplete = ThreadLocalRandom.current().nextDouble(100, 201);
-		return timeToComplete;
+	
+	public Swimmer(){
 	}
+	
+    public int compete(){
+      Random ran = new Random();
+  	  return 100 + ran.nextInt(101);
+    }
 }

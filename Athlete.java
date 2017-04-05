@@ -5,12 +5,14 @@ public abstract class Athlete extends Person {
 	private String name;
 	private int age;
 	private String state;
+	private static int points ;
 	
-	public Athlete(int id, String name, int age, String state){
+	public Athlete(int id, String name, int age, String state , int points){
 		this.id = id;
 		this.name = name;
 		this.age = age;
 		this.state = state;
+		Athlete.points = 0 ;
 	}
 	
 	public Athlete(String name, int age, String state){
@@ -26,7 +28,7 @@ public abstract class Athlete extends Person {
 	public int getAge(){return age;}
 	public String getState(){return state;}
 	
-	public abstract double complete();
+	public abstract int compete();
 	
 	//public abstract Double Complete();
 }

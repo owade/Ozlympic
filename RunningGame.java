@@ -1,7 +1,9 @@
 package Ozy;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
+import java.util.SortedMap;
 
 public class RunningGame extends Game{
 	public int totalAthlete = super.genTotalAthelete();
@@ -11,11 +13,27 @@ public class RunningGame extends Game{
 	ArrayList<Athlete> sprinterList = new ArrayList<Athlete>();
 	ArrayList<Athlete> superAthList = new ArrayList<Athlete>();
 	
-	ArrayList<Athlete> athleteParticipateList = new ArrayList<Athlete>();
+	public static HashMap<String, Integer> gameResultsList = new HashMap<String, Integer>();
+	public static HashMap<String, Integer> AthResHash = new HashMap<String, Integer>();
+	public static HashMap<String, Integer> pointsHash = new HashMap<String, Integer>();	
+	public static ArrayList<String[]> gameStore = new ArrayList<String[]>();	
+    public static ArrayList<Athlete> athleteParticipateList = new ArrayList<Athlete>();
 	//TO-DO
-	//Sort athleteParticipateList accounding to their runtime
+	//Sort athleteParticipateList according to their runtime
 	//Pick 3 first runner
-	//return to Official to sumarize the game
+	//return to Official to summarize the game
+//    public void getName(){
+//    	addAthleteToItsList();
+//    	pickAthlete();
+//    	GetAthName();
+//    }
+    
+    public void runPreEvent(){
+		addAthleteToItsList();
+		pickAthlete();
+		DisplayRunners();
+	}
+    
 	public void runEvent(){
 		addAthleteToItsList();
 		pickAthlete();
@@ -44,23 +62,34 @@ public class RunningGame extends Game{
 		//Pick random index from superAthleteList
 		final int[] indexOfSuperAthlete = new Random().ints(0, superAthList.size()).distinct().limit(noOfSuperAthlete).toArray();
 		
-		//Get random sprinters from sprinterList based on random idex array
+		//Get random sprinters from sprinterList based on random index array
 		for(int i = 0; i < indexOfSprinters.length; i++){
 			athleteParticipateList.add(sprinterList.get(indexOfSprinters[i]));
 		}
-		//Get random super athlete from superAthList based on random idex array
+		//Get random super athlete from superAthList based on random index array
 		for(int i = 0; i < indexOfSuperAthlete.length; i++){
 			athleteParticipateList.add(superAthList.get(indexOfSuperAthlete[i]));
 		}	
 	}
 	
-	public void Run(){
+//	public void GetAthName(){
+//		for(int i = 0 ; i < athleteParticipateList.size();i++){
+//			System.out.println(athleteParticipateList.get(i).getName());
+//		}
+//	}
+	public void DisplayRunners(){
 		System.out.println("Total Participants: " + totalAthlete);
 		System.out.println("Number of Actual Sprinters: " + noOfSprinter);
 		System.out.println("Number of Super Athletes: " + noOfSuperAthlete);
 		for(int i = 0; i < athleteParticipateList.size();i++){
 			System.out.println(athleteParticipateList.get(i).getName());
-			System.out.println(athleteParticipateList.get(i).complete());
+		}
+	}
+	
+	
+	public void Run(){
+		for(int i = 0; i < athleteParticipateList.size();i++){
+			athleteParticipateList.get(i).compete();
 		}
 	}
 	
