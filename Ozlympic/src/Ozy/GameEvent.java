@@ -102,13 +102,12 @@ public class GameEvent {
 	//user input and validation
 	public int predictWinnerID() {
 		int predictAthId = 0;
-		try {
 			System.out.println("Enter your predict winner ID: ");
-			predictAthId = reader.nextInt();
-
-		} catch (InputMismatchException exception) {
-			System.err.println("This is not an integer");
-		}
+			while (!reader.hasNextInt()) {
+                String input = reader.next();
+                System.err.printf("%s is not a valid number. Please input a valid number:\n", input);
+            }		
+			predictAthId = reader.nextInt();	
 		return predictAthId;
 	}
 	//Satrt the game
